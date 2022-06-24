@@ -1,0 +1,119 @@
+// Colour Variables
+
+$primary-orange: #d87D4A;
+$primary-black: #0E0E0E;
+$background-gray: #f1f1f1;
+$primary-background-color: #fafafa;
+$primary-orange-faded: #fbaf85;
+$white: #ffffff;
+$black: #000000;
+
+// Title mixins
+
+@mixin h1-title {
+  font-weight: bold;
+  font-size: 56px;
+  line-height: 58px;
+  letter-spacing: 2px;
+}
+@mixin h2-title {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: 1.5px;
+}
+@mixin h3-title {
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: 1.15px;
+}
+@mixin h4-title {
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 38px;
+  letter-spacing: 2px;
+}
+@mixin h5-title {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+  letter-spacing: 1.7px;
+}
+@mixin h6-title {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 1px;
+}
+@mixin overline {
+  color: $primary-orange-faded;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 10px;
+}
+@mixin sub-title {
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 25px;
+}
+
+@mixin body-text {
+  font-size: 15px;
+  line-height: 25px;
+}
+
+// Buttons
+
+@mixin button-1 {
+  padding: 1.5rem 3rem;
+  border: none;
+  border-radius: 5px;
+  background-color: $primary-orange;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+  &:hover {
+    background-color: $primary-orange-faded;
+  }
+}
+
+
+@mixin button-2 {
+  border: 1px solid $black;
+  padding: 1.5rem 3rem;
+  background-color: transparent;
+  color: $black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+  &:hover {
+    border: 1px solid transparent;
+    background-color: $black;
+    color: $white;
+  }
+}
+
+@mixin button-3 {
+  border: none;
+  padding: 1.5rem 3rem;
+  background-color: black;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+  &:hover {
+    border: 1px solid $black;
+    background-color: $black;
+    color: $white;
+  }
+}
+
+@mixin box-shadow {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
