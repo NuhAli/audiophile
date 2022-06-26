@@ -1,6 +1,7 @@
 import * as React from 'react'
+import { Overline } from '../ProductCard/styles';
 import { ContentBannerProps } from "./BannerTypes";
-import { ButtonLink, CardText, Container, Highlighted, Section, TextArea, Title, TitleOverLine } from './styles';
+import { ButtonLink, CardText, Container, Highlighted, Section, TextArea, Title } from './styles';
 
 
 
@@ -35,7 +36,7 @@ const ItemBanner = (props: ContentBannerProps): JSX.Element => {
                     ) :
                     (
                         <Container>
-                            {newProduct && <TitleOverLine >NEW PRODUCT</TitleOverLine>}
+                            {newProduct ? <Overline children={"New Product"} /> : null}
                             <Title>{title}</Title>
                             <CardText>{description}</CardText>
                             <ButtonLink to={`${link}`}>

@@ -4,9 +4,11 @@ import styled from "styled-components";
 export const ImageHero = styled.header`
         height: 729px;
         width: 100%;
+        bottom: 400px;
         background-image: url("../../assets/home/desktop/image-hero.jpg");
-        background-size: cover;
+        background-size: contain;
         background-repeat: no-repeat;
+        background-position: 50% ;
 `
 
 export const TextHero = styled.header`

@@ -6,13 +6,18 @@ import Hero from '../components/Hero/Hero';
 import Footer from "../components/Footer/Footer";
 import bestGear from "../assets/shared/desktop/image-best-gear.jpg";
 import ProductCard from "../components/ProductCard/ProductCard";
+import { ProductItemType } from '../components/ProductCard/products';
 
-const ProductPageLayout = () => {
+interface PageProps {
+    data: ProductItemType[]
+}
+
+const ProductPageLayout = ({ data }: PageProps) => {
 
     const renderContent = (): JSX.Element => {
         return (
             <>
-                <ProductCard />
+                <ProductCard product={data[0]} />
                 <CategoryRail />
                 <ItemBanner
                     height={588}

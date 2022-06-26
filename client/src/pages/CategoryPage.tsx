@@ -1,20 +1,23 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { ProductItemType } from '../components/ProductCard/products';
 import CategoryPageLayout from "../layouts/CategoryPageLayout";
 
 const CategoryPage = () => {
+    const [data, setData] = useState<ProductItemType[] | null>([])
 
-    const [data, dataSet] = useState()
+    const { category } = useParams()
 
     useEffect(() => {
-        axios.get("http://localhost:4001/").then((res) => {
-            dataSet(res.data)
+        axios.get(`http://localhost:4001/products/${category}`).then((res) => {
+            setData(res.data)
         })
-    }, [])
+    }, [category])
 
     return (
         <>
-            <CategoryPageLayout />
+            <CategoryPageLayout data={data} />
         </>
     )
 }

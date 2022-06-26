@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import { FaFacebookSquare, FaTwitter, FaInstagram } from 'react-icons/fa'
 
 export const PageFooter = styled.footer`
-    width: 1440px;
+    width: 100%;
     height: 365px;
     z-index: 1;
+    background-color: #101010;
 `
 
 export const FooterContainer = styled.div`
@@ -15,7 +16,7 @@ export const FooterContainer = styled.div`
     padding: 45px 0;
     display: flex;
     flex-direction: column;
-    background-color:  #0E0E0E;
+    background-color:  #101010;
 `
 
 export const Rectangle = styled.div`

@@ -1,11 +1,10 @@
 import * as React from 'react'
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { headphoneProducts, speakerProducts, earphoneProducts, ProductItemType } from "./products";
+import { useState } from "react";
 import ProductDescription from '../ProductDescription/ProductDescription';
 import ItemGallery from '../ItemGallery/ItemGallery';
 import SuggestionRail from '../SuggestionRail/SuggestionRail';
 import { Card, Container, Counter, Icon, Overline, ProductButton, ProductDescriptionStyle, ProductPrice, ProductTitle, QuantityBox, TextContainer } from './styles';
+import { ProductItemType } from './products';
 
 const imageStyles = {
     width: 540,
@@ -14,41 +13,13 @@ const imageStyles = {
     marginRight: 124.5
 }
 
-const ProductCard = () => {
+interface ProductCardProps {
+    product: ProductItemType
+}
+
+const ProductCard = ({ product }: ProductCardProps) => {
 
     const [counter, setCounter] = useState(1)
-
-    const [productCategory, setProductCategory] = useState<ProductItemType[]>()
-
-    const [currentProduct, setCurrenProduct] = useState<ProductItemType>()
-
-    const { category, id } = useParams()
-
-    console.log(category, id)
-
-    useEffect(() => {
-        switch (category) {
-            case "headphones":
-                setProductCategory(headphoneProducts)
-                break
-            case "speakers":
-                setProductCategory(speakerProducts)
-                break
-            case "earphones":
-                setProductCategory(earphoneProducts)
-                break
-            default:
-                return
-        }
-    }, [category])
-
-
-    useEffect(() => {
-        if (productCategory && id) {
-            const currentProduct = productCategory?.find(product => product.id === +id)
-            setCurrenProduct(currentProduct)
-        }
-    }, [productCategory, id])
 
     const increment = () => setCounter(prevState => prevState + 1)
 
@@ -58,15 +29,15 @@ const ProductCard = () => {
         <>
             <Card>
                 <img
-                    src={currentProduct?.productImage}
-                    alt={`${currentProduct?.name}`}
+                    src={product?.productImage}
+                    alt={`${product?.name}`}
                     style={imageStyles}
                 />
                 <TextContainer>
-                    {currentProduct?.new && <Overline children={"New Product"} />}
-                    <ProductTitle>{currentProduct?.name}</ProductTitle>
-                    <ProductDescriptionStyle>{currentProduct?.description}</ProductDescriptionStyle>
-                    {currentProduct && <ProductPrice>{`$ ${currentProduct.price * counter}`}</ProductPrice>}
+                    {product?.new ? <Overline children={"New Product"} /> : null}
+                    <ProductTitle>{product?.name}</ProductTitle>
+                    <ProductDescriptionStyle>{product?.description}</ProductDescriptionStyle>
+                    {product && <ProductPrice>{`$ ${product.price * counter}`}</ProductPrice>}
                     <Container>
                         <QuantityBox>
                             <Icon onClick={decrement}>-</Icon>
@@ -77,9 +48,9 @@ const ProductCard = () => {
                     </Container>
                 </TextContainer>
             </Card>
-            <ProductDescription features={currentProduct?.features} boxContent={currentProduct?.boxContent} />
-            <ItemGallery gallery={currentProduct?.gallery} />
-            <SuggestionRail suggestions={currentProduct?.suggestions} />
+            <ProductDescription features={product?.features} boxContent={product?.boxContent} />
+            <ItemGallery gallery={product?.gallery} />
+            <SuggestionRail suggestions={product?.suggestions} />
         </>
     )
 }

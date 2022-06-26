@@ -27,7 +27,7 @@ export const DescriptionBody = styled.p`
     color: rgba(0,0,0,0.5);
 `
 
-export const BoxContentContainer = styled.h3`
+export const BoxContentContainer = styled.div`
     width: 350px;
     height: auto;
     padding-left: 125px;

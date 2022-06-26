@@ -1,7 +1,7 @@
 import * as React from 'react'
 import NavBar from "../NavBar/NavBar";
 import heroData from "./heroData";
-import { ImageHero, TextHero, TextHeroTitle, HeroContainer, HeroTitle, HeroContent, HeroDescription, HeroInnerText, HeroButton, HeroSubtitle } from "./styles"
+import { TextHero, TextHeroTitle, HeroContainer, HeroTitle, HeroContent, HeroDescription, HeroInnerText, HeroButton, HeroSubtitle, ImageHero } from "./styles"
 
 import { useParams } from "react-router-dom";
 
@@ -21,7 +21,7 @@ const Hero = (props: HeroPropTypes): JSX.Element => {
     const renderHero = () => {
         if (type === 'ImageHero') {
             return (
-                <ImageHero className={'hero'}>
+                <ImageHero>
                     <NavBar />
                     <HeroContainer>
                         <HeroContent>

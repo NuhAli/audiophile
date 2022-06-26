@@ -15,7 +15,7 @@ interface RailProps {
 const SuggestionRail = ({ suggestions }: RailProps) => {
 
     const renderContent = () => {
-        return suggestions?.map(suggestion => <SuggestionCard name={suggestion.name} src={suggestion.src} link={suggestion.link} />)
+        return suggestions?.map((suggestion, index) => <SuggestionCard key={index} name={suggestion.name} src={suggestion.src} link={suggestion.link} />)
     }
 
     return (

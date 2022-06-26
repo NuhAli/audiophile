@@ -3,46 +3,32 @@ import Hero from "../components/Hero/Hero";
 import Footer from "../components/Footer/Footer";
 import ContentSection from "../components/ContentSection/ContentSection";
 import ItemBanner from "../components/ContentBanner/ItemBanner";
-import { headphones, earphones, speakers, ProductBanner } from "../components/ContentBanner/productBanners";
-import { useParams } from "react-router-dom";
 import { isEven } from "../utils/isEven";
 import { v4 as uuid } from "uuid";
 import CategoryRail from "../components/CategoryRail/CategoryRail";
 import bestGear from "../assets/shared/desktop/image-best-gear.jpg";
+import { ProductItemType } from '../components/ProductCard/products';
 
-const CategoryPageLayout = () => {
-    const page = useParams()
-    const currentCategory = page.category
+interface CategoryPageLayoutProps {
+    data: ProductItemType[] | null
+}
+
+const CategoryPageLayout = ({ data }: CategoryPageLayoutProps) => {
 
     const renderContent = () => {
-        let currentCategoryData: ProductBanner[] = []
 
-        switch (currentCategory) {
-            case 'headphones':
-                currentCategoryData = headphones
-                break
-            case 'speakers':
-                currentCategoryData = speakers
-                break
-            case 'earphones':
-                currentCategoryData = earphones
-                break
-            default:
-                break
-        }
-
-        const content = currentCategoryData.map((item, index) => {
+        const content = data?.map((item, index) => {
             return (
                 <ItemBanner
                     height={560}
                     width={1110}
-                    backgroundPicture={item.image}
+                    backgroundPicture={item.productImage}
                     reverse={isEven(index)}
                     highlightedTitle={false}
-                    title={item.title}
+                    title={item.name}
                     description={item.description}
                     key={uuid()}
-                    newProduct={item.newItem}
+                    newProduct={item.new}
                     link={item.link}
                 />
             )

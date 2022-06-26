@@ -218,14 +218,14 @@ export const SmallCardTitle = styled.h6`
 
 export const ButtonLight = styled(Link)`
     margin-top: 24px;
-    width: 160px;
+    max-width: 180px;
     border: 1px solid black;
     padding: 1.5rem 3rem;
     background-color: transparent;
     color: black;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 2px;
     display: flex;
     justify-content: center;
