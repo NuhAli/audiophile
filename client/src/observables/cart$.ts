@@ -1,6 +1,16 @@
-import { ProductItemType } from './../components/ProductCard/products';
+
 import { BehaviorSubject } from "rxjs";
 
-const cart$ = new BehaviorSubject<ProductItemType[]>([])
+export interface CartItemProps {
+    itemId: number,
+    cartName: string,
+    cartImage: string,
+    quantity: number,
+    price: number,
+}
+
+const cart$ = new BehaviorSubject<Array<CartItemProps>>([])
+
+
 
 export default cart$

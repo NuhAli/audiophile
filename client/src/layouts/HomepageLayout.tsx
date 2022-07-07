@@ -12,6 +12,7 @@ import SmallContent from "../components/ContentBanner/SmallContent";
 import yx1 from "../assets/home/desktop/image-earphones-yx1.jpg";
 import ItemBanner from "../components/ContentBanner/ItemBanner";
 import bestGear from "../assets/shared/desktop/image-best-gear.jpg";
+import CartModal from "../components/CartModal/CartModal";
 
 const HomepageLayout = (): JSX.Element => {
     return (
@@ -26,7 +27,7 @@ const HomepageLayout = (): JSX.Element => {
                     title={'ZX9 Speakers'}
                     description={'Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.'}
                     backgroundPicture={zx9}
-                    link={"/products/speakers/1"}
+                    link={"/products/speakers/4"}
                 />
                 <ThinContentBanner
                     height={320}
@@ -34,7 +35,7 @@ const HomepageLayout = (): JSX.Element => {
                     backgroundColor={'#D87D4A'}
                     title={'ZX7 Speakers'}
                     backgroundPicture={zx7}
-                    link={"/products/speakers/2"}
+                    link={"/products/speakers/5"}
                 />
                 <div className="small-cards">
                     <SmallContent
@@ -42,7 +43,7 @@ const HomepageLayout = (): JSX.Element => {
                         width={540}
                         type={'image-only'}
                         backgroundPicture={yx1}
-                        link={"/products/earphones/1"}
+                        link={"/products/earphones/6"}
                     />
                     <SmallContent
                         height={320}
@@ -50,7 +51,7 @@ const HomepageLayout = (): JSX.Element => {
                         type={'text-only'}
                         backgroundColor={'#F2F2F2'}
                         title={'YX1 EARPHONES'}
-                        link={"/products/earphones/1"}
+                        link={"/products/earphones/6"}
                     />
                 </div>
                 <ItemBanner

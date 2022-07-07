@@ -14,14 +14,8 @@ app.use(express.urlencoded({
 
 db.connect()
 
-app.get("/", (req, res) => {
-    const sqlQuery = "SELECT * FROM products.speakers;"
-    db.query(sqlQuery, (err, result) => {
-        res.send(result)
-    })
-})
-
 // Headphone API Routes
+app.use('/', require('./routes/cart'));
 app.use('/products/headphones', require('./routes/headphones'));
 app.use('/products/speakers', require('./routes/speakers'));
 app.use('/products/earphones', require('./routes/earphones'));

@@ -1,5 +1,15 @@
 import styled from "styled-components"
 
+export const CardWrapper = styled.div`
+    width: auto;
+    height: auto;
+    margin-bottom: 160px;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+`
+
 export const Card = styled.section`
     width: 1110px;
     height: 560px;
@@ -25,7 +35,7 @@ export const Overline = styled.p`
     line-height: 19px;
     letter-spacing: 10px;
     text-transform: uppercase;
-    margin-bottom: 16px
+    margin-bottom: 16px;
 `
 
 export const ProductTitle = styled.h2`
@@ -56,15 +66,12 @@ export const Container = styled.div`
     width: 100%;
     display: flex;
     flex-direction: row;
-    flex-direction: "flex-start";
 `
-export const Icon = styled.span`
-    color: rgba(0,0,0,0.25);
-    font-weight: bold;
+export const Icon = styled.p`
+    font-weight: bolder;
     font-size: 13px;
     line-height: 17.76px;
     vertical-align: top;
-    cursor: pointer
 `
 
 export const Counter = styled.span`
@@ -72,7 +79,7 @@ export const Counter = styled.span`
     font-weight: bold;
     font-size: 13px;
     line-height: 17.76px;
-    vertical-align: top
+    vertical-align: top;
     cursor: pointer
 `
 
@@ -105,5 +112,20 @@ export const ProductButton = styled.button`
     transition: all 0.4s ease;
     &:hover {
         background-color: #fbaf85;
+    }
+`
+
+export const GoBackLink = styled.span`
+    
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 25px;
+    color: #000000;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    margin-bottom: 20px;
+    &:hover {
+      color: rgba(216, 125, 74, 1);
     }
 `
