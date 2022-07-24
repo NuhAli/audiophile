@@ -7,6 +7,7 @@ import ProductPage from './pages/ProductPage';
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import CartModal from "./components/CartModal/CartModal";
 import modalVisible$ from "./observables/modalVisible$";
+import CheckoutPage from "./pages/CheckoutPage";
 
 const App = () => {
 
@@ -23,9 +24,10 @@ const App = () => {
       <ScrollToTop />
         {showModal && <CartModal />}
       <Routes>
-        <Route path={'/'} element={<Home />} />
-        <Route path={'/products/:category'} element={<CategoryPage />} />
-        <Route path={'/products/:category/:id'} element={<ProductPage />} />
+          <Route path={'/'} element={<Home />} />
+          <Route path={'/products/:category'} element={<CategoryPage />} />
+          <Route path={'/products/:category/:id'} element={<ProductPage />} />
+          <Route path={'/cart'} element={<CheckoutPage />} />
       </Routes>
     </BrowserRouter>
   )

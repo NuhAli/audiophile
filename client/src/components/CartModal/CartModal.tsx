@@ -6,12 +6,14 @@ import {Backdrop, CartContainer, Cart, CartTextContainer, CartTitle, CartTitleLi
 import modalVisible$ from "../../observables/modalVisible$";
 import {CartItemProps} from "../../observables/cart$";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
+import formatNumber from "../../utils/formatNumber";
 
 const CartModal = (): JSX.Element => {
     const [cart,setCart] = useState<CartItemProps[]>([])
     const [,setModal] = useState(false)
     const [,setTotal] = useState<number>(0)
-    const [price,setPrice] = useState<number>(0)
+    const [price,setPrice] = useState("")
 
     useEffect(() => {
         modalVisible$.subscribe(value => {
@@ -26,7 +28,7 @@ const CartModal = (): JSX.Element => {
         for (let i = 0; i < cart.length; i++) {
             cartPrice = cartPrice + (cart[i].price * cart[i].quantity)
         }
-        setPrice(cartPrice)
+        setPrice(formatNumber(cartPrice))
         setTotal(cart.length);
     },[cart])
 
@@ -39,6 +41,7 @@ const CartModal = (): JSX.Element => {
                         price={item?.price}
                         cartImage={item?.cartImage}
                         itemId={item?.itemId}
+                        type={"modal"}
             />
         })
     }
@@ -47,6 +50,11 @@ const CartModal = (): JSX.Element => {
         axios.delete("http://localhost:4001/").then(r => setCart([]))
     }
 
+    const navigate = useNavigate()
+
+    const handleNavigation = () => {
+        navigate("/cart")
+    }
     return (
         <RemoveScroll removeScrollBar={false}>
             <Backdrop>
@@ -72,7 +80,7 @@ const CartModal = (): JSX.Element => {
                                 $ {price}
                             </CartTitle>
                         </CartTextContainer>
-                        <CartButton disabled={cart.length === 0}>Checkout</CartButton>
+                        <CartButton onClick={handleNavigation} disabled={cart.length === 0}>Checkout</CartButton>
                     </Cart>
                 </CartContainer>
             </Backdrop>

@@ -9,7 +9,6 @@ export const Rail = styled.div`
     max-width: 1110px;
     margin-top: 80px;
     margin-bottom: 160px;
-
     section:nth-child(2) {
         margin: 0 35px;
     }
@@ -19,7 +18,7 @@ export const Card = styled.section`
     position: relative;
     width: 350px;
     height: 204px;
-    background-color: #f1f1f1;
+    background-color: #F1F1F1;
     border-radius: 6px;
     padding: 30px;
     display: flex;

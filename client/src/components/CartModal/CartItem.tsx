@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
-import {SingleItem, ItemImage, ItemTextContainer, ItemTextTitle, ItemTextPrice, QuantityContainer,IconContainer} from "./styles";
+import {SingleItem, ItemImage, ItemTextContainer, ItemTextTitle, ItemTextPrice, QuantityContainer,IconContainer, TotalContainer} from "./styles";
 import {Counter, Icon} from "../ProductCard/styles";
 import axios from "axios";
+import formatNumber from "../../utils/formatNumber";
 
 
 interface CartItemProps {
@@ -10,9 +11,10 @@ interface CartItemProps {
     cartImage: string,
     cartName: string,
     itemId: number,
+    type: "modal" | "page"
 }
 
-const CartItem = ({cartName,quantity,price,cartImage,itemId,}: CartItemProps) => {
+const CartItem = ({cartName,quantity,price,cartImage,itemId,type}: CartItemProps) => {
 
     const [counter, setCounter] = useState(1)
 
@@ -35,17 +37,26 @@ const CartItem = ({cartName,quantity,price,cartImage,itemId,}: CartItemProps) =>
             <ItemImage src={cartImage}/>
             <ItemTextContainer>
                 <ItemTextTitle>{cartName}</ItemTextTitle>
-                <ItemTextPrice>{`$ ${price}`}</ItemTextPrice>
+                <ItemTextPrice>{`$ ${formatNumber(price)}`}</ItemTextPrice>
             </ItemTextContainer>
-            <QuantityContainer>
-                <IconContainer onClick={decrement}>
-                    <Icon>-</Icon>
-                </IconContainer>
-                <Counter>{counter}</Counter>
-                <IconContainer onClick={increment}>
-                    <Icon>+</Icon>
-                </IconContainer>
-            </QuantityContainer>
+            {
+                type === "page" ?
+                    (
+                        <TotalContainer>
+                            <p>{`x${quantity}`}</p>
+                        </TotalContainer>
+                    ):(
+                        <QuantityContainer>
+                            <IconContainer onClick={decrement}>
+                                <Icon>-</Icon>
+                            </IconContainer>
+                            <Counter>{counter}</Counter>
+                            <IconContainer onClick={increment}>
+                                <Icon>+</Icon>
+                            </IconContainer>
+                        </QuantityContainer>
+                    )
+            }
         </SingleItem>
     )
 }

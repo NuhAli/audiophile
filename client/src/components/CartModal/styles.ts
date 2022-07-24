@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {Link} from "react-router-dom";
 
 export const Backdrop = styled.div`
     position: fixed;
@@ -87,13 +86,17 @@ export const CartButton = styled.button`
       background-color: #d87D4A;
       color: white;
       font-weight: bold;
+      font-size: 13px;
+      line-height: 18px;
+      letter-spacing: 1px;
+      text-align: center;
       text-transform: uppercase;
       display: flex;
       justify-content: center;
       align-items: center;
       transition: all 0.4s ease;
       cursor: pointer;
-      &:hover {
+  &:hover {
         background-color: #fbaf85;
       }
       
@@ -109,10 +112,10 @@ export const CartItems = styled.div`
 `
 
 export const SingleItem = styled.div`
-    width: 313px;
+    width: 100%;
     height: 64px;
     display: flex;
-    justify-content: flex-start
+    justify-content: flex-start;
     border-radius: 5px;
     margin-bottom: 25px
 `
@@ -121,6 +124,7 @@ export const ItemImage = styled.img`
     width: 64px;
     height: 64px;
     margin-right: 16px;
+    border-radius: 8px;
 `
 
 export const ItemTextContainer = styled.div`
@@ -161,6 +165,23 @@ export const QuantityContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0 16px;
+`
+
+export const TotalContainer = styled.div`
+    height: 100%;
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    
+    p {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 25px;
+      letter-spacing: 0;
+      text-align: right;
+      opacity: 0.5;
+    }
 `
 
 export const IconContainer = styled.div`

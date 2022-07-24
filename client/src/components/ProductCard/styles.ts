@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const CardWrapper = styled.div`
     width: auto;
     height: auto;
-    margin-bottom: 160px;
+
     border-radius: 8px;
     display: flex;
     align-items: flex-start;
@@ -116,7 +116,6 @@ export const ProductButton = styled.button`
 `
 
 export const GoBackLink = styled.span`
-    
     font-weight: 500;
     font-size: 15px;
     line-height: 25px;

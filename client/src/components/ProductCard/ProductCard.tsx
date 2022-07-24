@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import ProductDescription from '../ProductDescription/ProductDescription';
 import ItemGallery from '../ItemGallery/ItemGallery';
@@ -9,6 +9,7 @@ import { ProductItemType } from './products';
 import  {CartItemProps} from "../../observables/cart$";
 import axios from "axios";
 import { IconContainer } from '../CartModal/styles';
+import formatNumber from "../../utils/formatNumber";
 
 const imageStyles = {
     width: 540,
@@ -24,6 +25,13 @@ interface ProductCardProps {
 const ProductCard = ({ product }: ProductCardProps) => {
 
     const [counter, setCounter] = useState(1)
+    const [price, setPrice] = useState("");
+
+    useEffect(() => {
+        const newPrice = formatNumber(product.price * counter)
+        setPrice(newPrice)
+    }, [counter]);
+    
 
     const increment = () => setCounter(prevState => prevState + 1)
 
@@ -74,7 +82,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                     {product?.new ? <Overline children={"New Product"} /> : null}
                     <ProductTitle>{product?.name}</ProductTitle>
                     <ProductDescriptionStyle>{product?.description}</ProductDescriptionStyle>
-                    {product && <ProductPrice>{`$ ${product.price * counter}`}</ProductPrice>}
+                    {product && <ProductPrice>{`$ ${price}`}</ProductPrice>}
                     <Container>
                         <QuantityBox>
                             <IconContainer onClick={decrement}>
